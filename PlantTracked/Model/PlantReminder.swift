@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 
-struct PlantReminder {
+struct PlantReminder: Identifiable {
+    let id = UUID() // Each reminder needs a unique ID for SwiftUI lists
     var name: String
     var room: String
     var wateringDays: String
     var water: String
     var light: String
 }
+

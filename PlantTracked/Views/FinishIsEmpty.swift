@@ -8,8 +8,40 @@
 import SwiftUI
 
 struct FinishIsEmpty: View {
+    @State private var showingSheet = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationStack {
+            VStack(alignment: .center, spacing:40){
+                Image("Done")
+                Text("All Done! 🎉")
+                    .font(.title)
+                Text("All Reminders Completed")
+                    .font(.footnote).frame(width: 300).foregroundStyle(.gray)
+                
+                
+                
+            }.padding().navigationTitle("My Plants 🌱")
+                .toolbar {
+                ToolbarItemGroup(placement: .bottomBar)  {
+                    
+                    
+                        HStack{
+                            Image(systemName: "plus.circle.fill")
+                            Text("New Reminder")
+                            
+                        }.foregroundStyle(.accent).padding().onTapGesture {
+                            showingSheet.toggle()
+                        }.sheet(isPresented: $showingSheet) {
+                            SetReminder()
+                        }
+                        Spacer()
+                        
+                    
+                }
+            }
+        }
     }
 }
 

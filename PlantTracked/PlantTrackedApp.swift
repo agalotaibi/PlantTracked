@@ -11,7 +11,7 @@ import SwiftUI
 struct PlantTrackedApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainPage()
         }
     }
 }
