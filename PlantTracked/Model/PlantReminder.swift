@@ -15,5 +15,9 @@ struct PlantReminder: Identifiable {
     var wateringDays: String
     var water: String
     var light: String
+    var isChecked: Bool
+
+
+
 }
 
