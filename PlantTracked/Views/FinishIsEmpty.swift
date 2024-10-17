@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FinishIsEmpty: View {
     @State private var showingSheet = false
+    @StateObject private var viewModel = SetReminderViewModel() // Use StateObject to initialize
+
 
     var body: some View {
         
@@ -34,7 +36,7 @@ struct FinishIsEmpty: View {
                         }.foregroundStyle(.accent).padding().onTapGesture {
                             showingSheet.toggle()
                         }.sheet(isPresented: $showingSheet) {
-                            SetReminder()
+                            SetReminder(viewModel: viewModel)
                         }
                         Spacer()
                         
