@@ -9,15 +9,15 @@ import SwiftUI
 
 struct MainPage: View {
     @State private var showingSheet = false
-    @StateObject private var viewModel = SetReminderViewModel() // Use StateObject to initialize
-    
+//    @StateObject private var viewModel = SetReminderViewModel() // Use StateObject to initialize
+    @EnvironmentObject var viewModel: SetReminderViewModel
     
     var body: some View {
         
-        //        if reminders.isEmpty {
-        //            EmptyState()
-        //        }
-        //        else if reminders.count == 0 {
+        if viewModel.plantReminder.isEmpty {
+                    EmptyState()
+                }
+                else {
         
         
         
@@ -86,7 +86,7 @@ struct MainPage: View {
                     }
                     .sheet(isPresented: $showingSheet) {
                         // Pass the same viewModel to SetReminder
-                        SetReminder(viewModel: viewModel)
+                        SetReminder()
                     }
                     Spacer()
                 }
@@ -94,7 +94,7 @@ struct MainPage: View {
         }
         
         
-        // }
+       }
         //        else{
         //            FinishIsEmpty()
         //        }

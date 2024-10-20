@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SetReminder: View {
-    @ObservedObject var viewModel: SetReminderViewModel // Use @ObservedObject to reference passed ViewModel
+//    @StateObject var viewModel: SetReminderViewModel // Use @ObservedObject to reference passed ViewModel
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var viewModel: SetReminderViewModel
+
 
     var body: some View {
         VStack {
@@ -68,7 +70,8 @@ struct SetReminder: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Save") {
-                            viewModel.saveReminder()
+                           // viewModel.saveReminder()
+                            viewModel.plantReminder.append(.init(name: "", room: "", wateringDays: "", water: "", light: "", isChecked: false))
                             dismiss()
                         }
                     }
@@ -88,6 +91,6 @@ struct SetReminder: View {
 
 
 #Preview {
-    let testViewModel = SetReminderViewModel() // Create a test instance of the view model
-        SetReminder(viewModel: testViewModel)
+//  Create a test instance of the view model
+        SetReminder()
 }
