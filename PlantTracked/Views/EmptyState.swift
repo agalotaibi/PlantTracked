@@ -9,7 +9,9 @@ import SwiftUI
 
 struct EmptyState: View {
     @State private var showingSheet = false
-    @StateObject private var viewModel = SetReminderViewModel() // Use StateObject to initialize
+//    @StateObject private var viewModel = SetReminderViewModel() // Use StateObject to initialize
+    
+    @EnvironmentObject var viewModel: SetReminderViewModel
 
     var body: some View {
         NavigationStack {
@@ -23,7 +25,7 @@ struct EmptyState: View {
                 Button ("set reminder"){
                     showingSheet.toggle()
                 }.frame(width: 300, height: 50).foregroundColor(.black).background(Color("greenish")).cornerRadius(10).sheet(isPresented: $showingSheet) {
-                    SetReminder(viewModel: viewModel)
+                    SetReminder()
                 }
                 
              

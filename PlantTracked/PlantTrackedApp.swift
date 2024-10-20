@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct PlantTrackedApp: App {
+    @StateObject var vm = SetReminderViewModel()
+
     var body: some Scene {
         WindowGroup {
             MainPage()
+                .environmentObject(vm)
         }
     }
 }

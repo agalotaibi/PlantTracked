@@ -25,6 +25,7 @@ class SetReminderViewModel: ObservableObject {
 
     // Function to create and save a PlantReminder
     func saveReminder() {
+   
         let newReminder = PlantReminder(
             name: plantName,
             room: rooms[roomIndex],
@@ -35,6 +36,9 @@ class SetReminderViewModel: ObservableObject {
             
         )
         plantReminder.append(newReminder) // Save reminder to array
+        
+
+        
     }
     
     func toggleCheckmark(at index: Int) {
